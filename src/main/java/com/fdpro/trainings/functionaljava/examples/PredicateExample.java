@@ -1,4 +1,6 @@
-package com.fdpro.trainings.functionaljava;
+package com.fdpro.trainings.functionaljava.examples;
+
+import com.fdpro.trainings.functionaljava.model.Person;
 
 import java.util.ArrayList;
 import java.util.List;

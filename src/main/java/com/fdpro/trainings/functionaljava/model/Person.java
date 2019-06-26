@@ -1,4 +1,4 @@
-package com.fdpro.trainings.functionaljava;
+package com.fdpro.trainings.functionaljava.model;
 
 import java.util.Objects;
 

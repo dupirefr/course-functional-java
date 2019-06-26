@@ -1,4 +1,4 @@
-package com.fdpro.trainings.functionaljava;
+package com.fdpro.trainings.functionaljava.model;
 
 public class LightweightDatabase implements Database {
     private boolean available;

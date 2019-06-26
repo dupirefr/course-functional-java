@@ -1,4 +1,6 @@
-package com.fdpro.trainings.functionaljava;
+package com.fdpro.trainings.functionaljava.examples;
+
+import com.fdpro.trainings.functionaljava.model.Database;
 
 import java.util.function.Supplier;
 

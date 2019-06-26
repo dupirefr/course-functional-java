@@ -1,5 +1,9 @@
-package com.fdpro.trainings.functionaljava;
+package com.fdpro.trainings.functionaljava.examples;
 
+import com.fdpro.trainings.functionaljava.examples.SupplierExample;
+import com.fdpro.trainings.functionaljava.model.Database;
+import com.fdpro.trainings.functionaljava.model.HeavyDatabase;
+import com.fdpro.trainings.functionaljava.model.LightweightDatabase;
 import org.junit.jupiter.api.Test;
 
 import java.util.function.Supplier;

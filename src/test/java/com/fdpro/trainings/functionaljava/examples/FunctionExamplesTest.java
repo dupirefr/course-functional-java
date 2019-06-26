@@ -1,5 +1,7 @@
-package com.fdpro.trainings.functionaljava;
+package com.fdpro.trainings.functionaljava.examples;
 
+import com.fdpro.trainings.functionaljava.examples.FunctionExamples;
+import com.fdpro.trainings.functionaljava.model.Person;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

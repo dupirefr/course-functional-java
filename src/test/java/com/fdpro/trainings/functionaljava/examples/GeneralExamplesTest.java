@@ -1,4 +1,4 @@
-package com.fdpro.trainings.functionaljava;
+package com.fdpro.trainings.functionaljava.examples;
 
 import org.junit.jupiter.api.Test;
 
