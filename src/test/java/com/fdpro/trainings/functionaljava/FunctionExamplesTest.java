@@ -36,25 +36,9 @@ class FunctionExamplesTest {
         assertThat(ages).containsExactly(50, 43, 15);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     @Test
     void getPeopleInfo_Names() {
-        Function<Person, String> getName = null;
+        Function<Person, String> getName = person -> person.getName();
         List<String> names = FunctionExamples.getPeopleInfo(people, getName);
 
         assertThat(names).containsExactly("Robert", "Anna", "Kevin");
@@ -62,7 +46,7 @@ class FunctionExamplesTest {
 
     @Test
     void getPeopleInfo_Ages() {
-        Function<Person, Integer> getAge = null;
+        Function<Person, Integer> getAge = Person::getAge;
         List<Integer> ages = FunctionExamples.getPeopleInfo(people, getAge);
 
         assertThat(ages).containsExactly(50, 43, 15);
