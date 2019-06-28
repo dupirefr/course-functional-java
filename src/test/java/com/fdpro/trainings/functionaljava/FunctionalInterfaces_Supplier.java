@@ -35,8 +35,7 @@ class FunctionalInterfaces_Supplier {
 
     @Test
     void givenPeople_whenGiveAges_thenResult() {
-        Supplier<Integer> generateAge = () -> new Random().nextInt(75);
-        List<Person> people = giveAges(peopleNames, generateAge);
+        List<Person> people = giveAges(peopleNames, );
 
         assertThat(people).allMatch(person -> person.getAge() >= 0 && person.getAge() <= 74);
     }

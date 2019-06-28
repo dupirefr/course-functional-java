@@ -26,7 +26,6 @@ class Comparatorss {
 
     @Test
     void givenPeople_whenSort_Ages_thenResult() {
-        people.sort(Comparator.comparing(Person::getAge));
 
         assertThat(people).containsExactly(
           new Person("Kevin", 16),
@@ -39,10 +38,6 @@ class Comparatorss {
 
     @Test
     void givenPeople_whenSort_AgesThenNamesLength_thenResult() {
-        people.sort(
-          Comparator.comparing(Person::getAge)
-            .thenComparing(person -> person.getName().length())
-        );
 
         assertThat(people).containsExactly(
           new Person("Mike", 16),
@@ -55,11 +50,6 @@ class Comparatorss {
 
     @Test
     void givenPeople_whenSort_AgesThenNamesReversed_thenResult() {
-        people.sort(
-          Comparator.comparing(Person::getAge)
-            .thenComparing(person -> person.getName().length())
-            .reversed()
-        );
 
         assertThat(people).containsExactly(
           new Person("Robert", 50),

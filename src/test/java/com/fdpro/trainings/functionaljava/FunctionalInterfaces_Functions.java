@@ -34,26 +34,24 @@ class FunctionalInterfaces_Functions {
 
     @Test
     void givenPeople_whenGetPeopleInfo_Ages_thenResult() {
-        Function<Person, Integer> getAge = Person::getAge;
-        List<Integer> peopleAges = getPeopleInfo(people, getAge);
+
+        List<Integer> peopleAges = getPeopleInfo(people, );
 
         assertThat(peopleAges).containsExactly(50, 43, 16);
     }
 
     @Test
     void givenPeople_whenGetPeopleInfo_YearBorn_AndThen_thenResult() {
-        Function<Person, Integer> getAge = Person::getAge;
-        Function<Integer, Year> getYearBorn = age -> Year.now().minusYears(age);
-        List<Year> peopleAges = getPeopleInfo(people, getAge.andThen(getYearBorn));
+
+        List<Year> peopleAges = getPeopleInfo(people, );
 
         assertThat(peopleAges).containsExactly(Year.of(1969), Year.of(1976), Year.of(2003));
     }
 
     @Test
     void givenPeople_whenGetPeopleInfo_YearBorn_Compose_thenResult() {
-        Function<Person, Integer> getAge = Person::getAge;
-        Function<Integer, Year> getYearBorn = age -> Year.now().minusYears(age);
-        List<Year> peopleAges = getPeopleInfo(people, getYearBorn.compose(getAge));
+
+        List<Year> peopleAges = getPeopleInfo(people, );
 
         assertThat(peopleAges).containsExactly(Year.of(1969), Year.of(1976), Year.of(2003));
     }

@@ -32,7 +32,7 @@ class FunctionalInterfaces_Consumer {
 
     @Test
     void givenPeople_whenConsumePeopleInfo_PrintNames_thenNamesPrinter() {
-        Consumer<Person> printName = person -> System.out.println(person.getName());
+
         consumePeopleInfo(people, printName);
     }
 
@@ -40,9 +40,6 @@ class FunctionalInterfaces_Consumer {
     void givenPeople_whenConsumePeopleInfo_PrintNamesAndGather_thenNamesPrintedAndResult() {
         List<Person> gatheredPeople = new ArrayList<>();
 
-        Consumer<Person> printName = person -> System.out.println(person.getName());
-        Consumer<Person> gather = gatheredPeople::add;
-        consumePeopleInfo(people, printName.andThen(gather));
 
         assertThat(gatheredPeople).isEqualTo(people);
     }

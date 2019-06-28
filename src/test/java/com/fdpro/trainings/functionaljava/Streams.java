@@ -24,9 +24,6 @@ class Streams {
 
     @Test
     void givenPeople_whenStreamFilter_thenResult() {
-        List<Person> peopleOlderThanForty = people.stream()
-          .filter(person -> person.getAge() >= 40)
-          .collect(Collectors.toList());
 
         assertThat(peopleOlderThanForty).containsExactly(
           new Person("Robert", 50),
@@ -36,9 +33,6 @@ class Streams {
 
     @Test
     void givenPeople_whenStreamMap_thenResult() {
-        List<String> peopleNames = people.stream()
-          .map(Person::getName)
-          .collect(Collectors.toList());
 
         assertThat(peopleNames).containsExactly(
           "Robert",
@@ -48,22 +42,16 @@ class Streams {
 
     @Test
     void givenPeople_whenStreamCollect_thenResult() {
-        Set<Object> peopleSet = this.people.stream()
-          .collect(Collectors.toSet());
 
         assertThat(peopleSet).containsAll(people);
     }
 
     @Test
     void givenPeople_whenStreamForEach_thenResultPrinted() {
-         people.stream()
-          .forEach(System.out::println);
     }
 
     @Test
     void givenPeople_whenStreamMin_thenResult() {
-        Optional<Person> youngestPerson = people.stream()
-          .min(Comparator.comparing(Person::getAge));
 
         assertThat(youngestPerson)
           .isPresent()
@@ -72,8 +60,6 @@ class Streams {
 
     @Test
     void givenPeople_whenStreamMax_thenResult() {
-        Optional<Person> youngestPerson = people.stream()
-          .max(Comparator.comparing(Person::getAge));
 
         assertThat(youngestPerson)
           .isPresent()
@@ -82,13 +68,6 @@ class Streams {
 
     @Test
     void givenPeople_whenStreamReduce_thenResult() {
-        Double averageAge = people.stream()
-          .map(Person::getAge)
-          .reduce(
-            0d,
-            (result, age) -> result + ((double) age / people.size()),
-            (result1, result2) -> (result1 + result2) / 2
-          );
 
         assertThat(averageAge).isEqualTo(34.75);
     }

@@ -23,14 +23,6 @@ class FunctionalProgramming {
         );
     }
 
-    private List<String> getPeopleNames(List<Person> people) {
-        List<String> result = new ArrayList<>();
-        for (Person person : people) {
-            result.add(person.getName());
-        }
-        return result;
-    }
-
     @Test
     void givenPeople_whenGetPeopleNames_thenResult() {
         List<String> peopleNames = getPeopleNames(people);
@@ -38,13 +30,6 @@ class FunctionalProgramming {
         assertThat(peopleNames).containsExactly("Robert", "Anna", "Kevin");
     }
 
-    private List<Integer> getPeopleAges(List<Person> people) {
-        List<Integer> result = new ArrayList<>();
-        for (Person person : people) {
-            result.add(person.getAge());
-        }
-        return result;
-    }
 
     @Test
     void givenPeople_whenGetPeopleAges_thenResult() {
@@ -53,36 +38,19 @@ class FunctionalProgramming {
         assertThat(peopleAges).containsExactly(50, 43, 16);
     }
 
-    private <T> List<T> getPeopleInfo(List<Person> people, HomemadeFunction<Person, T> function) {
-        List<T> result = new ArrayList<>();
-        for (Person person : people) {
-            result.add(function.apply(person));
-        }
-        return result;
-    }
 
     @Test
     void givenPeople_whenGetPeopleInfo_Names_thenResult() {
-        HomemadeFunction<Person, String> getName = new HomemadeFunction<Person, String>() {
-            @Override
-            public String apply(Person input) {
-                return input.getName();
-            }
-        };
-        List<String> peopleNames = getPeopleInfo(people, getName);
+
+        List<String> peopleNames = getPeopleInfo(people, );
 
         assertThat(peopleNames).containsExactly("Robert", "Anna", "Kevin");
     }
 
     @Test
     void givenPeople_whenGetPeopleInfo_Ages_thenResult() {
-        HomemadeFunction<Person, Integer> getAge = new HomemadeFunction<Person, Integer>() {
-            @Override
-            public Integer apply(Person input) {
-                return input.getAge();
-            }
-        };
-        List<Integer> peopleAges = getPeopleInfo(people, getAge);
+
+        List<Integer> peopleAges = getPeopleInfo(people, );
 
         assertThat(peopleAges).containsExactly(50, 43, 16);
     }
@@ -97,29 +65,24 @@ class FunctionalProgramming {
 
     @Test
     void givenPeople_whenGetPeopleInfoWithFunction_Ages_thenResult() {
-        Function<Person, Integer> getAge = new Function<Person, Integer>() {
-            @Override
-            public Integer apply(Person input) {
-                return input.getAge();
-            }
-        };
-        List<Integer> peopleAges = getPeopleInfoWithFunction(people, getAge);
+
+        List<Integer> peopleAges = getPeopleInfoWithFunction(people, );
 
         assertThat(peopleAges).containsExactly(50, 43, 16);
     }
 
     @Test
     void givenPeople_whenGetPeopleInfoWithFunction_Ages_Lambda_thenResult() {
-        Function<Person, Integer> getAge = input -> input.getAge();
-        List<Integer> peopleAges = getPeopleInfoWithFunction(people, getAge);
+
+        List<Integer> peopleAges = getPeopleInfoWithFunction(people, );
 
         assertThat(peopleAges).containsExactly(50, 43, 16);
     }
 
     @Test
     void givenPeople_whenGetPeopleInfoWithFunction_Ages_MethodReference_thenResult() {
-        Function<Person, Integer> getAge = Person::getAge;
-        List<Integer> peopleAges = getPeopleInfoWithFunction(people, getAge);
+
+        List<Integer> peopleAges = getPeopleInfoWithFunction(people, );
 
         assertThat(peopleAges).containsExactly(50, 43, 16);
     }
