@@ -37,9 +37,9 @@ class FunctionalInterfaces_Predicate {
     @Test
     void givenPeople_whenGetPeopleMatching_AgeAboveForty_thenResult() {
 
-        List<Person> peopleAges = getPeopleMatching(people, null);
+        List<Person> peopleOlderThanForty = getPeopleMatching(people, null);
 
-        assertThat(peopleAges).containsExactly(
+        assertThat(peopleOlderThanForty).containsExactly(
           new Person("Robert", 50),
           new Person("Anna", 43)
         );
@@ -48,18 +48,18 @@ class FunctionalInterfaces_Predicate {
     @Test
     void givenPeople_whenGetPeopleMatching_AgeAboveFortyAndShortName_thenResult() {
 
-        List<Person> peopleAges = getPeopleMatching(people, null);
+        List<Person> peopleOlderThanFortyAndHavingShortNames = getPeopleMatching(people, null);
 
-        assertThat(peopleAges).containsExactly(
+        assertThat(peopleOlderThanFortyAndHavingShortNames).containsExactly(
           new Person("Anna", 43)
         );
     }
 
     @Test
     void givenPeople_whenGetPeopleMatching_AgeAboveFortyOrShortName_thenResult() {
-        List<Person> peopleAges = getPeopleMatching(people, null);
+        List<Person> peopleOlderThanFortyOrHavingShortNames = getPeopleMatching(people, null);
 
-        assertThat(peopleAges).containsExactly(
+        assertThat(peopleOlderThanFortyOrHavingShortNames).containsExactly(
           new Person("Robert", 50),
           new Person("Anna", 43),
           new Person("Kevin", 16)
@@ -68,9 +68,10 @@ class FunctionalInterfaces_Predicate {
 
     @Test
     void givenPeople_whenGetPeopleMatching_AgeBesideForty_thenResult() {
-        List<Person> peopleAges = getPeopleMatching(people, null);
 
-        assertThat(peopleAges).containsExactly(
+        List<Person> peopleYoungerThanForty = getPeopleMatching(people, null);
+
+        assertThat(peopleYoungerThanForty).containsExactly(
           new Person("Kevin", 16),
           new Person("Amelia", 30)
         );
