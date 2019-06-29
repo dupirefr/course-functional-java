@@ -35,7 +35,7 @@ class FunctionalInterfaces_Supplier {
 
     @Test
     void givenPeople_whenGiveAges_thenResult() {
-        List<Person> people = giveAges(peopleNames, );
+        List<Person> people = giveAges(peopleNames, null);
 
         assertThat(people).allMatch(person -> person.getAge() >= 0 && person.getAge() <= 74);
     }

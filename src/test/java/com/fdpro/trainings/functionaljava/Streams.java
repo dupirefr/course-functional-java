@@ -24,6 +24,7 @@ class Streams {
 
     @Test
     void givenPeople_whenStreamFilter_thenResult() {
+        List<Person> peopleOlderThanForty = null;
 
         assertThat(peopleOlderThanForty).containsExactly(
           new Person("Robert", 50),
@@ -33,6 +34,7 @@ class Streams {
 
     @Test
     void givenPeople_whenStreamMap_thenResult() {
+        List<String> peopleNames = null;
 
         assertThat(peopleNames).containsExactly(
           "Robert",
@@ -42,6 +44,7 @@ class Streams {
 
     @Test
     void givenPeople_whenStreamCollect_thenResult() {
+        Set<Person> peopleSet = null;
 
         assertThat(peopleSet).containsAll(people);
     }
@@ -52,6 +55,7 @@ class Streams {
 
     @Test
     void givenPeople_whenStreamMin_thenResult() {
+        Optional<Person> youngestPerson = null;
 
         assertThat(youngestPerson)
           .isPresent()
@@ -60,14 +64,16 @@ class Streams {
 
     @Test
     void givenPeople_whenStreamMax_thenResult() {
+        Optional<Person> oldestPerson = null;
 
-        assertThat(youngestPerson)
+        assertThat(oldestPerson)
           .isPresent()
           .contains(new Person("Robert", 50));
     }
 
     @Test
     void givenPeople_whenStreamReduce_thenResult() {
+        double averageAge = 0d;
 
         assertThat(averageAge).isEqualTo(34.75);
     }

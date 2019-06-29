@@ -25,7 +25,7 @@ class FunctionalProgramming {
 
     @Test
     void givenPeople_whenGetPeopleNames_thenResult() {
-        List<String> peopleNames = getPeopleNames(people);
+        List<String> peopleNames = null;
 
         assertThat(peopleNames).containsExactly("Robert", "Anna", "Kevin");
     }
@@ -33,7 +33,7 @@ class FunctionalProgramming {
 
     @Test
     void givenPeople_whenGetPeopleAges_thenResult() {
-        List<Integer> peopleAges = getPeopleAges(people);
+        List<Integer> peopleAges = null;
 
         assertThat(peopleAges).containsExactly(50, 43, 16);
     }
@@ -42,7 +42,7 @@ class FunctionalProgramming {
     @Test
     void givenPeople_whenGetPeopleInfo_Names_thenResult() {
 
-        List<String> peopleNames = getPeopleInfo(people, );
+        List<String> peopleNames = null;
 
         assertThat(peopleNames).containsExactly("Robert", "Anna", "Kevin");
     }
@@ -50,7 +50,7 @@ class FunctionalProgramming {
     @Test
     void givenPeople_whenGetPeopleInfo_Ages_thenResult() {
 
-        List<Integer> peopleAges = getPeopleInfo(people, );
+        List<Integer> peopleAges = null;
 
         assertThat(peopleAges).containsExactly(50, 43, 16);
     }
@@ -66,7 +66,7 @@ class FunctionalProgramming {
     @Test
     void givenPeople_whenGetPeopleInfoWithFunction_Ages_thenResult() {
 
-        List<Integer> peopleAges = getPeopleInfoWithFunction(people, );
+        List<Integer> peopleAges = getPeopleInfoWithFunction(people, null);
 
         assertThat(peopleAges).containsExactly(50, 43, 16);
     }
@@ -74,7 +74,7 @@ class FunctionalProgramming {
     @Test
     void givenPeople_whenGetPeopleInfoWithFunction_Ages_Lambda_thenResult() {
 
-        List<Integer> peopleAges = getPeopleInfoWithFunction(people, );
+        List<Integer> peopleAges = getPeopleInfoWithFunction(people, null);
 
         assertThat(peopleAges).containsExactly(50, 43, 16);
     }
@@ -82,7 +82,7 @@ class FunctionalProgramming {
     @Test
     void givenPeople_whenGetPeopleInfoWithFunction_Ages_MethodReference_thenResult() {
 
-        List<Integer> peopleAges = getPeopleInfoWithFunction(people, );
+        List<Integer> peopleAges = getPeopleInfoWithFunction(people, null);
 
         assertThat(peopleAges).containsExactly(50, 43, 16);
     }

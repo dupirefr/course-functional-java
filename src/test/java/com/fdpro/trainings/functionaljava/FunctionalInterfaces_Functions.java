@@ -35,7 +35,7 @@ class FunctionalInterfaces_Functions {
     @Test
     void givenPeople_whenGetPeopleInfo_Ages_thenResult() {
 
-        List<Integer> peopleAges = getPeopleInfo(people, );
+        List<Integer> peopleAges = getPeopleInfo(people, null);
 
         assertThat(peopleAges).containsExactly(50, 43, 16);
     }
@@ -43,7 +43,7 @@ class FunctionalInterfaces_Functions {
     @Test
     void givenPeople_whenGetPeopleInfo_YearBorn_AndThen_thenResult() {
 
-        List<Year> peopleAges = getPeopleInfo(people, );
+        List<Year> peopleAges = getPeopleInfo(people, null);
 
         assertThat(peopleAges).containsExactly(Year.of(1969), Year.of(1976), Year.of(2003));
     }
@@ -51,7 +51,7 @@ class FunctionalInterfaces_Functions {
     @Test
     void givenPeople_whenGetPeopleInfo_YearBorn_Compose_thenResult() {
 
-        List<Year> peopleAges = getPeopleInfo(people, );
+        List<Year> peopleAges = getPeopleInfo(people, null);
 
         assertThat(peopleAges).containsExactly(Year.of(1969), Year.of(1976), Year.of(2003));
     }

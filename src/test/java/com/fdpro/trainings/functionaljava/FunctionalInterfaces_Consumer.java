@@ -33,13 +33,14 @@ class FunctionalInterfaces_Consumer {
     @Test
     void givenPeople_whenConsumePeopleInfo_PrintNames_thenNamesPrinter() {
 
-        consumePeopleInfo(people, printName);
+        consumePeopleInfo(people, null);
     }
 
     @Test
     void givenPeople_whenConsumePeopleInfo_PrintNamesAndGather_thenNamesPrintedAndResult() {
         List<Person> gatheredPeople = new ArrayList<>();
 
+        consumePeopleInfo(people, null);
 
         assertThat(gatheredPeople).isEqualTo(people);
     }
