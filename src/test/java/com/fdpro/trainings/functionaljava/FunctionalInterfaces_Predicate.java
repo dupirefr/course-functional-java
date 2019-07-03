@@ -1,30 +1,34 @@
 package com.fdpro.trainings.functionaljava;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 
-import static org.assertj.core.api.Assertions.assertThat;
-
 class FunctionalInterfaces_Predicate {
 
-    private List<Person> people;
-
-    @BeforeEach
-    void initPeople() {
-        people = Arrays.asList(
+    public static void main(String[] args) {
+        List<Person> people = Arrays.asList(
           new Person("Robert", 50),
           new Person("Anna", 43),
           new Person("Kevin", 16),
           new Person("Amelia", 30)
         );
+
+        Predicate<Person> olderThanForty = person -> person.getAge() >= 40;
+        List<Person> peopleOlderThanForty = getPeopleMatching(people, olderThanForty);
+
+        Predicate<Person> hasShortName = person -> person.getName().length() <= 5;
+
+        List<Person> peopleOlderThanFortyWithShortNames = getPeopleMatching(people, olderThanForty.and(hasShortName));
+
+        List<Person> peopleOlderThanFortyOrWithShortNames = getPeopleMatching(people, olderThanForty.or(hasShortName));
+
+        List<Person> peopleYoungerThanForty = getPeopleMatching(people, olderThanForty.negate());
+        System.out.println(peopleYoungerThanForty);
     }
 
-    private List<Person> getPeopleMatching(List<Person> people, Predicate<Person> predicate) {
+    private static List<Person> getPeopleMatching(List<Person> people, Predicate<Person> predicate) {
         List<Person> result = new ArrayList<>();
         for (Person person : people) {
             if (predicate.test(person)) {
@@ -32,51 +36,5 @@ class FunctionalInterfaces_Predicate {
             }
         }
         return result;
-    }
-
-    @Test
-    void givenPeople_whenGetPeopleMatching_AgeAboveForty_thenResult() {
-        Predicate<Person> ageAboveForty = person -> person.getAge() >= 40;
-        List<Person> peopleAges = getPeopleMatching(people, ageAboveForty);
-
-        assertThat(peopleAges).containsExactly(
-          new Person("Robert", 50),
-          new Person("Anna", 43)
-        );
-    }
-
-    @Test
-    void givenPeople_whenGetPeopleMatching_AgeAboveFortyAndShortName_thenResult() {
-        Predicate<Person> ageAboveForty = person -> person.getAge() >= 40;
-        Predicate<Person> shortName = person -> person.getName().length() <= 5;
-        List<Person> peopleAges = getPeopleMatching(people, ageAboveForty.and(shortName));
-
-        assertThat(peopleAges).containsExactly(
-          new Person("Anna", 43)
-        );
-    }
-
-    @Test
-    void givenPeople_whenGetPeopleMatching_AgeAboveFortyOrShortName_thenResult() {
-        Predicate<Person> ageAboveForty = person -> person.getAge() >= 40;
-        Predicate<Person> shortName = person -> person.getName().length() <= 5;
-        List<Person> peopleAges = getPeopleMatching(people, ageAboveForty.or(shortName));
-
-        assertThat(peopleAges).containsExactly(
-          new Person("Robert", 50),
-          new Person("Anna", 43),
-          new Person("Kevin", 16)
-        );
-    }
-
-    @Test
-    void givenPeople_whenGetPeopleMatching_AgeBesideForty_thenResult() {
-        Predicate<Person> ageAboveForty = person -> person.getAge() >= 40;
-        List<Person> peopleAges = getPeopleMatching(people, ageAboveForty.negate());
-
-        assertThat(peopleAges).containsExactly(
-          new Person("Kevin", 16),
-          new Person("Amelia", 30)
-        );
     }
 }
